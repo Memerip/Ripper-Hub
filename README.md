@@ -1,2 +1,7 @@
 # Ripper-Hub
-Roblox exploit hub
+Free keyed roblox script hub
+
+# One line execution
+```
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Memerip/Ripper-Hub/main/main.lua"))()
+```
