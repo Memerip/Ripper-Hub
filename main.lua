@@ -93,7 +93,7 @@ Enter:AddButton({
         if _G.KeyInput == _G.EnterKey then
 			CorrectKeyNotifications()
 			wait(3)
-         MakeScriptHub()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/Memerip/Ripper-Hub/main/script/ripperhub.lua"))()
      else
         WrongKeyNotifications()
         end
