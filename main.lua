@@ -94,7 +94,7 @@ Enter:AddButton({
 })
 
 Get:AddLabel("Get Key")
-Tab:AddButton({
+Get:AddButton({
 	Name = "Copy link!",
 	Callback = function()
       		setclipboard("https://discord.com/invite/CKQuGPqx8M")
