@@ -42,7 +42,7 @@ function WrongKeyNotifications()
     })
 end
 
-function GetKeyNotifications()
+function GameCopiedNotifications()
     OrionLib:MakeNotification({
         Name = "Link Copied",
         Content = "Game link has been copied!",
@@ -51,7 +51,7 @@ function GetKeyNotifications()
     })
 end
 
-function GameCopiedNotifications()
+function GetKeyNotifications()
     OrionLib:MakeNotification({
         Name = "GetKey",
         Content = "Discord Link Copied!",
