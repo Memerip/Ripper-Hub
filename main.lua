@@ -1,110 +1,343 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Ripper Hub Key", HidePremium = true, IntroText = "Ripper Hub Key", SaveConfig = true, ConfigFolder = "RipperHubKey"})
-if game.GameId ~= 9144187696 then
+local Window = OrionLib:MakeWindow({Name = "Ripper Hub - A Piece", HidePremium = true, IntroText = "Ripper Hub", SaveConfig = true, ConfigFolder = "RipperHubapiece"})
 
-     OrionLib:MakeNotification({
-	Name = "Warning!",
-	Content = "Invalid game", 
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-setclipboard("https://www.roblox.com/games/9144187696")
-end
-OrionLib:MakeNotification({
-	Name = "Your in!",
-	Content = "Ripper Hub Key v1.2", 
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
+--Values
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Memerip/Ripper-Hub/main/script/key.lua"))()
+_G.autospin = true
 
-function MakeScriptHub()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Memerip/Ripper-Hub/main/script/ripperhub.lua"))()
+--Functions
 
+function autospin()
+    while _G.autospin == true do
+local args = {
+    [1] = "SPINB"
+}
 
+game:GetService("ReplicatedStorage").Remotes.SpinsRE:FireServer(unpack(args))
+wait(5)
+    end
 end
 
+--Teleport Spawn
+function tpspawn()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(65.9353485, 1.75868607, -21.2998161, 0.999902606, -6.78614924e-08, -0.0139562804, 6.72819027e-08, 1, -4.19985895e-08, 0.0139562804, 4.10554932e-08, 0.999902606)
+end 
 
-function CorrectKeyNotifications()
-    OrionLib:MakeNotification({
-        Name = "Correct Key",
-        Content = "Welcome to Ripper Hub!",
-        Image = "rbxassetid://4483345998",
-        Time = 2
-    })
-end
+-- Tabs
 
-function WrongKeyNotifications()
-    OrionLib:MakeNotification({
-        Name = " Wrong Key",
-        Content = "Join my Discord for the Key!",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
-end
-
-function GetKeyNotifications()
-    OrionLib:MakeNotification({
-        Name = "GetKey",
-        Content = "Discord Link Copied!",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
-end
-
-local Enter = Window:MakeTab({
-	Name = "Enter Key",
+local AutoTab = Window:MakeTab({
+	Name = "Auto",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-local Get = Window:MakeTab({
-	Name = "Get Key",
+local TeleportTab = Window:MakeTab({
+	Name = "Teleports",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-local Games = Window:MakeTab({
-	Name = "Games",
+local QuestTab = Window:MakeTab({
+	Name = "Quest Teleports",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-Enter:AddTextbox({
-	Name = "Enter Key",
-	Default = "",
-	TextDisappear = true,
+local MiscTab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- Toggles
+
+AutoTab:AddToggle({
+	Name = "Auto Spin Fruit",
+	Default = false,
 	Callback = function(Value)
-        _G.KeyInput = Value
-	end	  
+		_G.autospin = Value
+        autospin()
+	end    
 })
 
-Enter:AddButton({
-	Name = "Check Key!",
+-- Buttons
+
+TeleportTab:AddButton({
+	Name = "Spawn",
 	Callback = function()
-        if _G.KeyInput == _G.EnterKey then
-			CorrectKeyNotifications()
-			wait(3)
-         MakeScriptHub()
-     else
-        WrongKeyNotifications()
-        end
+      		tpspawn()
   	end    
 })
 
-Get:AddLabel("Get Key")
-Get:AddButton({
-	Name = "Copy link!",
+QuestTab:AddButton({
+	Name = "Bandits",
 	Callback = function()
-      		setclipboard("https://discord.com/invite/CKQuGPqx8M")
-			  GetKeyNotifications()
+model = game:GetService("Workspace").QuestNpc.Bandits
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
   	end    
 })
 
-Games:AddButton({
-	Name = "A Piece",
+QuestTab:AddButton({
+	Name = "Bandit Leader",
 	Callback = function()
-setclipboard("https://www.roblox.com/games/9144187696")
-  	end 
+model = game:GetService("Workspace").QuestNpc["Bandit Leader"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
 })
+
+QuestTab:AddButton({
+	Name = "Monkeys",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc.Monkeys
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Monkey King",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Monkey King"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Kill Ninjas",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Kill Ninjas"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Sakura Samurai",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Sakura Samurai"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Desert Bandits",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Desert Bandits"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Sand King",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Sand King"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Tundra Bandits",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Tundra Bandits"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Cool Sword Enjoyer Chad",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Cool Sword Enjoyer"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Cool Blade guy",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Cool Blade Enthusiast"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "RPS Fan",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Rock, Paper, Scissors Fan"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Yeti",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc.Yeti
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Pirates",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc.Pirates
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Cool Pirate",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Cool Pirate"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Corrupted Marines",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Corrupted Marines"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Marine Boss",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Marine Boss"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Sky Bandits",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Sky Bandits"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Sky Lord",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Sky Lord"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+QuestTab:AddButton({
+	Name = "Cool Spear Lover",
+	Callback = function()
+model = game:GetService("Workspace").QuestNpc["Cool Spear Lover"]
+humpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+goto = humpart.CFrame * CFrame.new(0,0,-3)
+if model.PrimaryPart then
+    model:SetPrimaryPartCFrame(goto)
+end
+  	end    
+})
+
+-- Sliders
+
+MiscTab:AddSlider({
+	Name = "Speed",
+	Min = 25,
+	Max = 200,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+	end    
+})
+
+MiscTab:AddSlider({
+	Name = "JumpPower (Buggy)",
+	Min = 25,
+	Max = 200,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "JumpPower",
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value) 
+	end    
+})
+
+MiscTab:AddParagraph("Made by Meme.rip#6927", "Join my Discord Server https://discord.com/invite/CKQuGPqx8M")
+
+
+OrionLib:Init()
