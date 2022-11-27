@@ -109,7 +109,7 @@ Get:AddButton({
   	end    
 })
 
-Get:AddLabel("Supported Game")
+Games:AddLabel("Supported Game")
 Games:AddButton({
 	Name = "A Piece",
 	Callback = function()
