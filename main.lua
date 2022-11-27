@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Ripper Hub Key", HidePremium = true, SaveConfig = true, ConfigFolder = "RipperHubKey"})
+local Window = OrionLib:MakeWindow({Name = "Ripper Hub Key", HidePremium = true, IntroText = "Ripper Hub Key", SaveConfig = true, ConfigFolder = "RipperHubKey"})
 if game.GameId ~= 9144187696 then
 
      OrionLib:MakeNotification({
@@ -65,8 +65,8 @@ local Get = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local Get = Window:MakeTab({
-	Name = "Get Key",
+local Games = Window:MakeTab({
+	Name = "Games",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
