@@ -4,9 +4,25 @@ local Window = OrionLib:MakeWindow({Name = "Ripper Hub - A Piece", HidePremium =
 --Values
 
 _G.autospin = true
+_G.autoclaim = true
+_G.dfstat = true
+_G.strnstat = true
+_G.durastat = true
+_G.swordstat = true
 
 --Functions
 
+-- Discord Copied Notification
+function CopiedDiscordNotifications()
+    OrionLib:MakeNotification({
+        Name = "Discord",
+        Content = "Discord Invite Copied!",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
+
+-- Auto Spin
 function autospin()
     while _G.autospin == true do
 local args = {
@@ -14,8 +30,73 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.SpinsRE:FireServer(unpack(args))
-wait(5)
+wait(1)
     end
+end
+
+
+-- Auto Claim Spins
+function autoclaim()
+	while _G.autoclaim == true do
+
+game:GetService("ReplicatedStorage").Remotes.FreeSpinNew:FireServer()
+wait(1)
+	end
+end
+
+-- Auto Devil Fruit Stats
+
+--Devil Fruit
+function dfstat()
+	while _G.dfstat == true do
+
+local args = {
+    [1] = "DFPoints",
+    [2] = "1"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Stat:FireServer(unpack(args))
+wait(1)
+	end
+end
+
+-- Strength
+function strnstat()
+	while _G.strnstat == true do
+		local args = {
+			[1] = "Strn",
+			[2] = "1"
+		}
+		
+		game:GetService("ReplicatedStorage").Remotes.Stat:FireServer(unpack(args))
+wait(1)
+	end
+end
+
+-- Durability
+function durastat()
+	while _G.durastat == true do
+		local args = {
+			[1] = "Dura",
+			[2] = "1"
+		}
+		
+		game:GetService("ReplicatedStorage").Remotes.Stat:FireServer(unpack(args))		
+wait(1)
+	end
+end
+
+-- Sword
+function swordstat()
+	while _G.swordstat == true do
+		local args = {
+			[1] = "SwordP",
+			[2] = "1"
+		}
+		
+		game:GetService("ReplicatedStorage").Remotes.Stat:FireServer(unpack(args))
+wait(1)
+	end
 end
 
 --Teleport Spawn
@@ -24,6 +105,17 @@ function tpspawn()
 end 
 
 -- Tabs
+
+local HomeTab = Window:MakeTab({
+	Name = "Home",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+HomeTab:AddLabel("Ripper Hub v1.0")
+HomeTab:AddParagraph("Made by Meme.rip#6927", "Join my Discord Server https://discord.com/invite/CKQuGPqx8M")
+HomeTab:AddLabel("Supported Game")
+HomeTab:AddParagraph("A Piece", "Verison 1.0")
 
 local AutoTab = Window:MakeTab({
 	Name = "Auto",
@@ -51,6 +143,8 @@ local MiscTab = Window:MakeTab({
 
 -- Toggles
 
+-- Auto Fruit
+AutoTab:AddLabel("Auto Fruit")
 AutoTab:AddToggle({
 	Name = "Auto Spin Fruit",
 	Default = false,
@@ -60,7 +154,62 @@ AutoTab:AddToggle({
 	end    
 })
 
+AutoTab:AddToggle({
+	Name = "Auto Claim Spins",
+	Default = false,
+	Callback = function(Value)
+		_G.autoclaim = Value
+        autoclaim()
+	end    
+})
+
+-- Auto Stats
+AutoTab:AddLabel("Auto Stats")
+AutoTab:AddToggle({
+	Name = "Auto Fruit Stats",
+	Default = false,
+	Callback = function(Value)
+		_G.dfstat = Value
+        dfstat()
+	end    
+})
+
+AutoTab:AddToggle({
+	Name = "Auto Strength Stats",
+	Default = false,
+	Callback = function(Value)
+		_G.strnstat = Value
+        strnstat()
+	end    
+})
+
+AutoTab:AddToggle({
+	Name = "Auto Durability Stats",
+	Default = false,
+	Callback = function(Value)
+		_G.durastat = Value
+        durastat()
+	end    
+})
+
+AutoTab:AddToggle({
+	Name = "Auto Sword Stats",
+	Default = false,
+	Callback = function(Value)
+		_G.swordstat = Value
+        swordstat()
+	end    
+})
+
 -- Buttons
+
+HomeTab:AddButton({
+	Name = "Copy Discord Invite!",
+	Callback = function()
+      		setclipboard("https://discord.com/invite/CKQuGPqx8M")
+			  CopiedDiscordNotifications()
+  	end    
+})
 
 TeleportTab:AddButton({
 	Name = "Spawn",
@@ -68,6 +217,8 @@ TeleportTab:AddButton({
       		tpspawn()
   	end    
 })
+
+TeleportTab:AddParagraph("More soon...", " Coming in Verison 1.1")
 
 QuestTab:AddButton({
 	Name = "Bandits",
@@ -336,8 +487,6 @@ MiscTab:AddSlider({
 		game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value) 
 	end    
 })
-
-MiscTab:AddParagraph("Made by Meme.rip#6927", "Join my Discord Server https://discord.com/invite/CKQuGPqx8M")
 
 
 OrionLib:Init()
