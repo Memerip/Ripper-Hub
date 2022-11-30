@@ -1,8 +1,12 @@
 # Ripper-Hub
 Open source simple roblox script hub
 
-# One line execution
+## One line execution
 
 ```
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Memerip/Ripper-Hub/main/loader.lua"))()
 ```
+
+### Update Logs
+
+<a href="https://github.com/Memerip/Ripper-Hub/blob/main/Updates.md">View update logs!</a>
