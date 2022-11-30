@@ -235,18 +235,8 @@ local HomeTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-HomeTab:AddLabel("Ripper Hub v1.0")
-HomeTab:AddParagraph("Made by Meme.rip#6927", "Join my Discord Server https://discord.com/invite/CKQuGPqx8M")
-HomeTab:AddLabel("Supported Game")
-HomeTab:AddParagraph("A Piece", "Verison 1.1 BETA")
-
-local AutoTab = Window:MakeTab({
-	Name = "AutoFarm",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-AutoTab:AddParagraph("Coming later...", "Coming in a future version")
+HomeTab:AddLabel("Ripper Hub")
+HomeTab:AddParagraph("Supported Game", "A Piece")
 
 local StatTab = Window:MakeTab({
 	Name = "Stats",
@@ -277,6 +267,17 @@ local UniversalTab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
+local InfoTab = Window:MakeTab({
+	Name = "Information",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+InfoTab:AddLabel("Ripper Hub Information")
+InfoTab:AddLabel("Made by Meme.rip#6927")
+InfoTab:AddParagraph("A Piece", "Verison 1.1 BETA")
+InfoTab:AddParagraph("Ripper Hub", "Verison 1.3")
 
 -- Toggles
 
