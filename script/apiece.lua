@@ -74,7 +74,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.SpinsRE:FireServer(unpack(args))
-wait(1)
+wait(0.1)
     end
 end
 
@@ -86,7 +86,7 @@ function autospinf()
 		}
 		
 		game:GetService("ReplicatedStorage").Remotes.SpinsRE:FireServer(unpack(args))
-wait(1)
+wait(0.2)
     end
 end
 
