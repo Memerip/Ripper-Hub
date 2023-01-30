@@ -12,6 +12,7 @@ getgenv().durastat = true
 getgenv().swordstat = true
 getgenv().spamm = true
 getgenv().geppospam = true
+getgenv().lagswitch = true
 
 --Functions
 
@@ -73,7 +74,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.SpinsRE:FireServer(unpack(args))
-wait(0.2)
+wait(1)
     end
 end
 
@@ -85,7 +86,7 @@ function autospinf()
 		}
 		
 		game:GetService("ReplicatedStorage").Remotes.SpinsRE:FireServer(unpack(args))
-wait(0.1)
+wait(1)
     end
 end
 
@@ -179,6 +180,19 @@ function geppospam()
 		game:GetService("Players").LocalPlayer.Character.CharacterHandler.RemoteEvent:FireServer(unpack(args))
 		wait(0.5)
 	end
+end
+
+-- Lag Switch
+function lagswitch()
+    while getgenv().lagswitch == true do
+local args = {
+    [1] = CFrame.new(66.67923736572266, 5.510211944580078, 30.865888595581055) * CFrame.Angles(-0.5542637705802917, 0.11948587000370026, 0.07365090399980545)
+}
+
+game:GetService("ReplicatedStorage").Lightning.Skill:FireServer(unpack(args))
+
+wait(0.1)
+    end
 end
 
 -- TP to Player
@@ -276,7 +290,7 @@ local InfoTab = Window:MakeTab({
 
 InfoTab:AddLabel("Ripper Hub Information")
 InfoTab:AddLabel("Made by Meme.rip#6927")
-InfoTab:AddParagraph("A Piece", "Verison 1.1 BETA")
+InfoTab:AddParagraph("A Piece", "Verison 1.1")
 InfoTab:AddParagraph("Ripper Hub", "Verison 1.3")
 
 -- Toggles
@@ -366,6 +380,17 @@ FunTab:AddToggle({
 	Callback = function(Value)
 		getgenv().geppospam = Value
         geppospam()
+	end    
+})
+
+--Crash
+FunTab:AddLabel("A Piece Lag Switch (equip gear 5 sword to use)")
+FunTab:AddToggle({
+	Name = "Lag Switch",
+	Default = false,
+	Callback = function(Value)
+		getgenv().lagswitch = Value
+        lagswitch()
 	end    
 })
 
