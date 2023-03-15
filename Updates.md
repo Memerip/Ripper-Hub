@@ -20,3 +20,12 @@
 - Added tp to player
 
 *A Piece (v1.1 BETA)*
+
+
+
+**Ripper Hub - Ohio Piece**
+------------------------------
+**Fruit**
+- Give yourself common, uncommon, rare fruit
+
+*Ohio Piece (v1.0)*
