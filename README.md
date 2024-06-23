@@ -6,7 +6,7 @@ Open source simple roblox script hub (ik its not the best)
 # Games
 
 <ul>
-  <li>Archived current scripts except for the universal script</li>
+  <li>I archived all current scripts except for the universal script</li>
 </ul>
 
 ## One line execution
