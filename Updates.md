@@ -1,3 +1,3 @@
 # Update Logs
 
-# ⚠️DOWN FOR MAINTENCE ⚠️
+# ⚠️DOWN FOR MAINTENANCE ⚠️
