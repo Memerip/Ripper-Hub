@@ -1,11 +1,12 @@
+#⚠️ DOWN FOR MAINTENCE ⚠️
+
 # Ripper-Hub
-Open source simple roblox script hub
+Open source simple roblox script hub (ik its not the best)
 
 # Games
 
 <ul>
-  <li>https://www.roblox.com/games/9144187696/ - A Piece</li>
-  <li>https://www.roblox.com/games/11983467451/ - Ohio Piece</li>
+  <li>Removed current scripts gonna update soon</li>
 </ul>
 
 ## One line execution
