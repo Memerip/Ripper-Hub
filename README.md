@@ -1,6 +1,5 @@
 > [!NOTE]
 > ⚠️ DOWN FOR MAINTENANCE ⚠️
-> Ripper Hub will be back sooner or later
 
 # 🪦 Ripper Hub 🪦
 Open source simple roblox script hub (ik its not the best)
