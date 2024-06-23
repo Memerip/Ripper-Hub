@@ -3,13 +3,13 @@
 # 🪦 Ripper Hub 🪦
 Open source simple roblox script hub (ik its not the best)
 
-### 🦈 Supported Games
+## 🦈 Supported Games
 
 <ul>
   <li>I archived all current scripts except for the universal script</li>
 </ul>
 
-### 🔗 One line execution
+## 🔗 One line execution
 
 ```
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Memerip/Ripper-Hub/main/loader.lua"))()
