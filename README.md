@@ -1,3 +1,4 @@
+> [!NOTE]
 > ⚠️ DOWN FOR MAINTENANCE ⚠️
 > Ripper Hub will be back sooner or later
 
