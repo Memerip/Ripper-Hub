@@ -1,3 +1,3 @@
 # Update Logs
 
-<h2>Nothing here yet</h2>
+# ⚠️DOWN FOR MAINTINENCE ⚠️
