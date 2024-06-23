@@ -6,7 +6,7 @@ Open source simple roblox script hub (ik its not the best)
 # Games
 
 <ul>
-  <li>Removed current scripts gonna update soon</li>
+  <li>Archived current scripts except for universal</li>
 </ul>
 
 ## One line execution
